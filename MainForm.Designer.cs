@@ -58,13 +58,6 @@
             this.tbxResult = new System.Windows.Forms.TextBox();
             this.pnlResult = new System.Windows.Forms.Panel();
             this.dgvResult = new System.Windows.Forms.DataGridView();
-            this.dgvcSystem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcCenterDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcCurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvcAngle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStripSearch = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.SearchAddToRouteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblSpan = new System.Windows.Forms.Label();
@@ -144,6 +137,14 @@
             this.lblFrom = new System.Windows.Forms.Label();
             this.btnTo = new System.Windows.Forms.Button();
             this.btnFrom = new System.Windows.Forms.Button();
+            this.dgvcSystem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcCenterDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcCurrentDistance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcZ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcAngleH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvcAngleV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.contextMenuStripSearch.SuspendLayout();
@@ -390,7 +391,8 @@
             this.dgvcX,
             this.dgvcY,
             this.dgvcZ,
-            this.dgvcAngle});
+            this.dgvcAngleH,
+            this.dgvcAngleV});
             this.dgvResult.ContextMenuStrip = this.contextMenuStripSearch;
             this.dgvResult.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvResult.Location = new System.Drawing.Point(0, 0);
@@ -398,70 +400,6 @@
             this.dgvResult.ReadOnly = true;
             this.dgvResult.Size = new System.Drawing.Size(770, 321);
             this.dgvResult.TabIndex = 0;
-            // 
-            // dgvcSystem
-            // 
-            this.dgvcSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcSystem.DataPropertyName = "System";
-            this.dgvcSystem.Frozen = true;
-            this.dgvcSystem.HeaderText = "Система";
-            this.dgvcSystem.MinimumWidth = 20;
-            this.dgvcSystem.Name = "dgvcSystem";
-            this.dgvcSystem.ReadOnly = true;
-            this.dgvcSystem.Width = 89;
-            // 
-            // dgvcCenterDistance
-            // 
-            this.dgvcCenterDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcCenterDistance.DataPropertyName = "CenterDistance";
-            this.dgvcCenterDistance.HeaderText = "От центра";
-            this.dgvcCenterDistance.Name = "dgvcCenterDistance";
-            this.dgvcCenterDistance.ReadOnly = true;
-            // 
-            // dgvcCurrentDistance
-            // 
-            this.dgvcCurrentDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcCurrentDistance.DataPropertyName = "CurrentDistance";
-            this.dgvcCurrentDistance.HeaderText = "От текущего";
-            this.dgvcCurrentDistance.Name = "dgvcCurrentDistance";
-            this.dgvcCurrentDistance.ReadOnly = true;
-            this.dgvcCurrentDistance.Width = 114;
-            // 
-            // dgvcX
-            // 
-            this.dgvcX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcX.DataPropertyName = "X";
-            this.dgvcX.HeaderText = "X";
-            this.dgvcX.Name = "dgvcX";
-            this.dgvcX.ReadOnly = true;
-            this.dgvcX.Width = 41;
-            // 
-            // dgvcY
-            // 
-            this.dgvcY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcY.DataPropertyName = "Y";
-            this.dgvcY.HeaderText = "Y";
-            this.dgvcY.Name = "dgvcY";
-            this.dgvcY.ReadOnly = true;
-            this.dgvcY.Width = 42;
-            // 
-            // dgvcZ
-            // 
-            this.dgvcZ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcZ.DataPropertyName = "Z";
-            this.dgvcZ.HeaderText = "Z";
-            this.dgvcZ.Name = "dgvcZ";
-            this.dgvcZ.ReadOnly = true;
-            this.dgvcZ.Width = 41;
-            // 
-            // dgvcAngle
-            // 
-            this.dgvcAngle.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvcAngle.DataPropertyName = "Angle";
-            this.dgvcAngle.HeaderText = "Угол";
-            this.dgvcAngle.Name = "dgvcAngle";
-            this.dgvcAngle.ReadOnly = true;
-            this.dgvcAngle.Width = 64;
             // 
             // contextMenuStripSearch
             // 
@@ -1477,6 +1415,81 @@
             this.btnFrom.UseVisualStyleBackColor = true;
             this.btnFrom.Click += new System.EventHandler(this.btnFrom_Click);
             // 
+            // dgvcSystem
+            // 
+            this.dgvcSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcSystem.DataPropertyName = "System";
+            this.dgvcSystem.Frozen = true;
+            this.dgvcSystem.HeaderText = "Система";
+            this.dgvcSystem.MinimumWidth = 20;
+            this.dgvcSystem.Name = "dgvcSystem";
+            this.dgvcSystem.ReadOnly = true;
+            this.dgvcSystem.Width = 89;
+            // 
+            // dgvcCenterDistance
+            // 
+            this.dgvcCenterDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcCenterDistance.DataPropertyName = "CenterDistance";
+            this.dgvcCenterDistance.HeaderText = "От центра";
+            this.dgvcCenterDistance.Name = "dgvcCenterDistance";
+            this.dgvcCenterDistance.ReadOnly = true;
+            // 
+            // dgvcCurrentDistance
+            // 
+            this.dgvcCurrentDistance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcCurrentDistance.DataPropertyName = "CurrentDistance";
+            this.dgvcCurrentDistance.HeaderText = "От текущего";
+            this.dgvcCurrentDistance.Name = "dgvcCurrentDistance";
+            this.dgvcCurrentDistance.ReadOnly = true;
+            this.dgvcCurrentDistance.Width = 114;
+            // 
+            // dgvcX
+            // 
+            this.dgvcX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcX.DataPropertyName = "X";
+            this.dgvcX.HeaderText = "X";
+            this.dgvcX.Name = "dgvcX";
+            this.dgvcX.ReadOnly = true;
+            this.dgvcX.Width = 41;
+            // 
+            // dgvcY
+            // 
+            this.dgvcY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcY.DataPropertyName = "Y";
+            this.dgvcY.HeaderText = "Y";
+            this.dgvcY.Name = "dgvcY";
+            this.dgvcY.ReadOnly = true;
+            this.dgvcY.Width = 42;
+            // 
+            // dgvcZ
+            // 
+            this.dgvcZ.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcZ.DataPropertyName = "Z";
+            this.dgvcZ.HeaderText = "Z";
+            this.dgvcZ.Name = "dgvcZ";
+            this.dgvcZ.ReadOnly = true;
+            this.dgvcZ.Width = 41;
+            // 
+            // dgvcAngleH
+            // 
+            this.dgvcAngleH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcAngleH.DataPropertyName = "AngleH";
+            this.dgvcAngleH.HeaderText = "Угол гор.";
+            this.dgvcAngleH.Name = "dgvcAngleH";
+            this.dgvcAngleH.ReadOnly = true;
+            this.dgvcAngleH.ToolTipText = "угол между направлением на Sol и на направлением на эту систему";
+            this.dgvcAngleH.Width = 92;
+            // 
+            // dgvcAngleV
+            // 
+            this.dgvcAngleV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvcAngleV.DataPropertyName = "AngleV";
+            this.dgvcAngleV.HeaderText = "Урол верт.";
+            this.dgvcAngleV.Name = "dgvcAngleV";
+            this.dgvcAngleV.ReadOnly = true;
+            this.dgvcAngleV.ToolTipText = "угол между направлением на Sol и на направлением на эту систему";
+            this.dgvcAngleV.Width = 103;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1559,13 +1572,6 @@
         private System.Windows.Forms.DataGridView dgvResult;
         private System.Windows.Forms.Label lblSpan;
         private System.Windows.Forms.TextBox tbxSpan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcSystem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCenterDistance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCurrentDistance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcZ;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcAngle;
         private System.Windows.Forms.GroupBox gbxCenter;
         private System.Windows.Forms.TextBox tbxCenterSystem;
         private System.Windows.Forms.Label lblCerterSystem;
@@ -1643,6 +1649,14 @@
         private System.Windows.Forms.Label lblFrom;
         private System.Windows.Forms.Button btnTo;
         private System.Windows.Forms.Button btnFrom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcSystem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCenterDistance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcCurrentDistance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcZ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcAngleH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvcAngleV;
     }
 }
 

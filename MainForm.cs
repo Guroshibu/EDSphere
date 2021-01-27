@@ -99,7 +99,17 @@ namespace EDSphere
             dtc = new DataColumn
             {
                 DataType = System.Type.GetType("System.Double"),
-                ColumnName = "Angle",
+                ColumnName = "AngleH",
+                AutoIncrement = false,
+                Caption = "",
+                ReadOnly = false,
+                Unique = false
+            };
+            dt.Columns.Add(dtc);
+            dtc = new DataColumn
+            {
+                DataType = System.Type.GetType("System.Double"),
+                ColumnName = "AngleV",
                 AutoIncrement = false,
                 Caption = "",
                 ReadOnly = false,
@@ -515,13 +525,17 @@ namespace EDSphere
 
                 dx = (double)system.coords.x - currentX;
                 dz = (double)system.coords.z - currentZ;
-
-                angle = this.angle(0, 1, dx, dz);
-                row["Angle"] = Math.Round(angle * 180 / Math.PI, 1);
-
+                dy = (double)system.coords.y - currentY;
+                //угол между направлением на sol из текущей системы
+                //и направлением на найденую систему
+                angle = this.angle(-currentX, -currentZ, dx, dz);
+                row["AngleH"] = Math.Round(angle * 180 / Math.PI, 1);
+                angle = this.angle(-currentX, -currentY, dx, dy);
+                row["AngleV"] = Math.Round(angle * 180 / Math.PI, 1);
                 dt.Rows.Add(row);
             }
-
+            dgvResult.DataSource = dt;
+            dgvResult.Update();
         }
 
         private void btnCenterCoordinates_Click(object sender, EventArgs e)
